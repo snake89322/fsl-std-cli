@@ -1,0 +1,24 @@
+{
+  "source": {
+    "include": ["bin", "package.json", "README.md"],
+    "includePattern": "\\.(jsx|js|ts|tsx)$",
+    "excludePattern": "(node_modules/|docs)"
+  },
+  "opts": {
+    "destination": "./docs/",
+    "template": "./node_modules/better-docs"
+  },
+  "tags": {
+    "allowUnknownTags": ["category"]
+  },
+  "plugins": [
+    "plugins/markdown",
+    "jsdoc-mermaid",
+    "node_modules/better-docs/category",
+    "node_modules/better-docs/typescript",
+    "node_modules/better-docs/typedef-import"
+  ],
+  "templates": {
+    "search": true
+  }
+}

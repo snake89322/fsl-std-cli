@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "ESNext",                                /* Specify what module code is generated. */
+  },
+  "extends": "../../tsconfig.json",
+  "exclude": ["dist"],
+  "include": ["**/*"]
+}

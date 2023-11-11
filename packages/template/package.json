@@ -1,0 +1,11 @@
+{
+  "name": "@fsl-std-cli/template",
+  "version": "1.0.0",
+  "description": "",
+  "files": [
+    "config-files"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

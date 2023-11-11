@@ -1,0 +1,90 @@
+{
+  "stylelint.enable": true,
+  // editor
+  // "editor.tabSize": 2,
+  // "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
+  // * 文件自动保存必须设置一个默认的 formatter
+  // "[typescriptreact]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  //   "editor.formatOnSave": true
+  // },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  // * eslint 自动保存
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+    // "source.organizeImports": true
+    // "source.fixAll.eslint": true
+    // "source.fixAll.tslint": true,
+    // "source.fixAll.stylelint": true
+  }
+  // "anki.defaultDeck": "mife-graphic"
+  // [todo-tree 保留]
+  // "todo-tree.tree.autoRefresh": true,
+  // "todo-tree.highlights.customHighlight": {
+  //   "NOTE": {
+  //     "foreground": "green",
+  //     "icon": "book",
+  //     "type": "text"
+  //   },
+  //   "WARN": {
+  //     "foreground": "white",
+  //     "background": "red",
+  //     "iconColour": "red",
+  //     "icon": "alert",
+  //     "type": "text"
+  //   },
+  //   "TODO": {
+  //     "foreground": "black",
+  //     "background": "green",
+  //     "iconColour": "green",
+  //     "icon": "check",
+  //     "type": "text"
+  //   },
+  //   "FIXME": {
+  //     "foreground": "black",
+  //     "background": "red",
+  //     "iconColour": "red",
+  //     "icon": "bug"
+  //   },
+  //   "REVIEW": {
+  //     "foreground": "black",
+  //     "background": "cyan",
+  //     "iconColour": "lightblue",
+  //     "icon": "eye"
+  //   },
+  //   "HACK": {
+  //     "foreground": "black",
+  //     "background": "#FFA500",
+  //     "iconColour": "orange",
+  //     "icon": "alert"
+  //   },
+  //   "REF": {
+  //     "foreground": "black",
+  //     "background": "grey",
+  //     "iconColour": "grey",
+  //     "icon": "link",
+  //     "type": "tag"
+  //   }
+  // },
+  // "todo-tree.highlights.defaultHighlight": {
+  //   "type": "text-and-comment"
+  // },
+  // "todo-tree.general.tags": ["TODO", "FIXME", "REVIEW", "HACK", "REF", "WARN", "NOTE"],
+  // // * Todo Tree 多行匹配正则
+  // "todo-tree.regex.regex": "(//)\\s*($TAGS).*(\\n\\s*//\\s{2,}.*)*",
+}

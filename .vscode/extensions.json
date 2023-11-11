@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "eamodio.gitlens",
+    "sonarsource.sonarlint-vscode",
+    // "gruntfuggly.todo-tree",
+    "aaron-bond.better-comments"
+    // "jasew.anki",
+    // "silvenon.mdx"
+  ]
+}
