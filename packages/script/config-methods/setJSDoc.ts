@@ -14,7 +14,7 @@ export async function setJSDoc() {
   // https://github.com/SoftwareBrothers/better-docs#customization
   const module = 'jsdoc'
   npmStartLog({ module })
-  spawnSync('pnpm', ['i', '-D', '-w', 'jsdoc', 'better-docs', 'taffydb'], { stdio: 'inherit' })
+  spawnSync('pnpm', ['i', '-D', 'jsdoc', 'better-docs', 'taffydb'], { stdio: 'inherit' })
   npmSucceedLog({ module })
 
   const file = '.jsdoc.json'

@@ -6,7 +6,7 @@ import path from 'path'
 export async function setPrecommit() {
   const module = 'husky lint-staged'
   npmStartLog({ module })
-  spawnSync('pnpm', ['i', '-D', '-w', 'husky', 'lint-staged'], { stdio: 'inherit' })
+  spawnSync('pnpm', ['i', '-D', '', 'husky', 'lint-staged'], { stdio: 'inherit' })
   npmSucceedLog({ module })
 
   let config = 'eslint lint-stage'

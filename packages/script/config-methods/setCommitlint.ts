@@ -13,7 +13,7 @@ import path from 'path'
 export async function setCommitlint() {
   const module = '@commitlint/cli @commitlint/config-conventional'
   npmStartLog({ module })
-  spawnSync('pnpm', ['i', '-D', '-w', '@commitlint/cli', '@commitlint/config-conventional'], {
+  spawnSync('pnpm', ['i', '-D', '@commitlint/cli', '@commitlint/config-conventional'], {
     stdio: 'inherit',
   })
   npmSucceedLog({ module })

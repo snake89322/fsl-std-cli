@@ -6,7 +6,7 @@ export async function setPostcss() {
   npmStartLog({ module })
   spawnSync(
     'pnpm',
-    ['i', '-D', '-w', 'postcss', 'postcss-flexbugs-fixes', 'postcss-preset-env', 'autoprefixer'],
+    ['i', '-D', 'postcss', 'postcss-flexbugs-fixes', 'postcss-preset-env', 'autoprefixer'],
     { stdio: 'inherit' },
   )
   npmSucceedLog({ module })

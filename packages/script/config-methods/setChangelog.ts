@@ -11,7 +11,6 @@ export async function setChangelog() {
     [
       'i',
       '-D',
-      '-w',
       'commitizen',
       'conventional-changelog',
       'conventional-changelog-cli',

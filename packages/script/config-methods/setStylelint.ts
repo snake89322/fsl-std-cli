@@ -9,7 +9,6 @@ export async function setStylelint() {
     [
       'i',
       '-D',
-      '-w',
       'stylelint',
       'stylelint-scss',
       'stylelint-config-recommended-scss',

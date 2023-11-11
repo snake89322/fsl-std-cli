@@ -7,15 +7,15 @@ const launchArgs = [
   '--enable-source-maps',
   '--experimental-loader',
   new URL('./loader.js', import.meta.url).href,
-  fileURLToPath(new URL('./fslstd.js', import.meta.url)),
+  fileURLToPath(new URL('./fstd.js', import.meta.url)),
 ]
-const frodoArgs = process.argv.slice(2)
+const fstdArgs = process.argv.slice(2)
 
-const frodo = spawn(process.execPath, [...launchArgs, ...frodoArgs], {
+const fstd = spawn(process.execPath, [...launchArgs, ...fstdArgs], {
   stdio: 'inherit',
   shell: false,
 })
 
-frodo.on('exit', (code) => {
+fstd.on('exit', (code) => {
   process.exitCode = code ?? undefined
 })

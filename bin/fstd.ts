@@ -1,21 +1,31 @@
 import { program } from 'commander'
 import packageJson from '../package.json' assert { type: 'json' }
 import { log } from '@fsl-std-cli/script'
+import figlet from 'figlet'
 
-await import('./fslstd.init')
+const { name, version, description } = packageJson
 
-const { version, description } = packageJson
+figlet(name, function (err, data) {
+  if (err) {
+    console.log('Something went wrong...')
+    console.dir(err)
+    return
+  }
+  console.log(data)
+})
+
+await import('./fstd.init')
 
 program.version(version, '-v, --version').description(`
-      fslstd-cli version: ${version}
+      ${name} version: ${version}
       node version: ${process.version}
       description: ${description}
     `)
 
 program.on('--help', () => {
   log('')
-  log('示例:')
-  log('  $ fslstd init')
+  log('Example:')
+  log('  $ fstd init')
 })
 
 // error on unknown commands

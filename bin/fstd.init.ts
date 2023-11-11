@@ -107,7 +107,9 @@ program
         },
       ])
       .then(async ({ configs }: { configs: readonly TConfigName[] }) => {
-        await configMethods.setNpmrc?.()
+        if (configs.includes('setNpmrc')) {
+          await configMethods.setNpmrc?.()
+        }
 
         for (const functionName of configs) {
           await configMethods[functionName]?.()

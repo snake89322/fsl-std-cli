@@ -7,7 +7,7 @@ export async function setEslint() {
   // eslint setting
   let module = 'eslint'
   npmStartLog({ module })
-  spawnSync('pnpm', ['i', '-D', '-w', 'eslint', '@eslint/create-config'], { stdio: 'inherit' })
+  spawnSync('pnpm', ['i', '-D', 'eslint', '@eslint/create-config'], { stdio: 'inherit' })
   // setting file type use JSON
   spawnSync('npx', ['eslint', '--init'], { stdio: 'inherit' })
   npmSucceedLog({ module })
@@ -15,13 +15,9 @@ export async function setEslint() {
   // prettier setting
   module = 'prettier'
   npmStartLog({ module })
-  spawnSync(
-    'pnpm',
-    ['i', '-D', '-w', 'prettier', 'eslint-config-prettier', 'eslint-plugin-prettier'],
-    {
-      stdio: 'inherit',
-    },
-  )
+  spawnSync('pnpm', ['i', '-D', 'prettier', 'eslint-config-prettier', 'eslint-plugin-prettier'], {
+    stdio: 'inherit',
+  })
   npmSucceedLog({ module })
 
   let config = 'eslint'
@@ -42,6 +38,8 @@ export async function setEslint() {
   eslintrcFile.set(
     'rules',
     Object.assign({}, eslintrcFile.get('rules'), {
+      '@typescript-eslint/strict-boolean-expressions': 'off',
+      '@typescript-eslint/explicit-function-return-type': 'off',
       'prettier/prettier': ['error', { singleQuote: true, semi: false, printWidth: 100 }],
     }),
   )

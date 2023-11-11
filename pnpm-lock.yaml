@@ -20,6 +20,9 @@ importers:
       commander:
         specifier: ^11.1.0
         version: 11.1.0
+      figlet:
+        specifier: ~1.7.0
+        version: registry.npmmirror.com/figlet@1.7.0
       fs-extra:
         specifier: ^11.1.1
         version: 11.1.1
@@ -48,6 +51,9 @@ importers:
       '@types/edit-json-file':
         specifier: ~1.7.3
         version: registry.npmmirror.com/@types/edit-json-file@1.7.3
+      '@types/figlet':
+        specifier: ~1.5.8
+        version: registry.npmmirror.com/@types/figlet@1.5.8
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -2522,6 +2528,12 @@ packages:
       '@types/set-value': registry.npmmirror.com/@types/set-value@4.0.3
     dev: true
 
+  registry.npmmirror.com/@types/figlet@1.5.8:
+    resolution: {integrity: sha512-G22AUvy4Tl95XLE7jmUM8s8mKcoz+Hr+Xm9W90gJsppJq9f9tHvOGkrpn4gRX0q/cLtBdNkWtWCKDg2UDZoZvQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/figlet/-/figlet-1.5.8.tgz}
+    name: '@types/figlet'
+    version: 1.5.8
+    dev: true
+
   registry.npmmirror.com/@types/istanbul-lib-coverage@2.0.6:
     resolution: {integrity: sha512-2QF/t/auWm0lsy8XtKVPG19v3sSOQlJe/YHZgfjb/KBBHOGSV+J2q/S671rcq9uTBrLAXmZpqJiaQbMT+zNU1w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.6.tgz}
     name: '@types/istanbul-lib-coverage'
@@ -4796,6 +4808,14 @@ packages:
     dependencies:
       reusify: registry.npmmirror.com/reusify@1.0.4
     dev: true
+
+  registry.npmmirror.com/figlet@1.7.0:
+    resolution: {integrity: sha512-gO8l3wvqo0V7wEFLXPbkX83b7MVjRrk1oRLfYlZXol8nEpb/ON9pcKLI4qpBv5YtOTfrINtqb7b40iYY2FTWFg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/figlet/-/figlet-1.7.0.tgz}
+    name: figlet
+    version: 1.7.0
+    engines: {node: '>= 0.4.0'}
+    hasBin: true
+    dev: false
 
   registry.npmmirror.com/figures@3.2.0:
     resolution: {integrity: sha512-yaduQFRKLXYOGgEn6AZau90j3ggSOyiqXU0F9JZfeXYhNa+Jk4X+s45A2zg5jns87GAFa34BBm2kXw4XpNcbdg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/figures/-/figures-3.2.0.tgz}
