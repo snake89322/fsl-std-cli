@@ -1,37 +1,44 @@
-import { npmStartLog, npmSucceedLog, configStartLog, configSucceedLog } from '../utils'
-import { spawnSync } from 'child_process'
-import editJsonFile from 'edit-json-file'
-import path from 'path'
+import { spawnSync } from "node:child_process";
+import path from "node:path";
+import editJsonFile from "edit-json-file";
+import {
+  configStartLog,
+  configSucceedLog,
+  npmStartLog,
+  npmSucceedLog,
+} from "../utils";
 
 export async function setChangelog() {
-  const module = 'commitizen conventional-changelog conventional-changelog-cli'
-  npmStartLog({ module })
+  const module = "commitizen conventional-changelog conventional-changelog-cli";
+  npmStartLog({ module });
   spawnSync(
-    'pnpm',
+    "pnpm",
     [
-      'i',
-      '-D',
-      'commitizen',
-      'conventional-changelog',
-      'conventional-changelog-cli',
-      'cz-conventional-changelog',
+      "i",
+      "-D",
+      "commitizen",
+      "conventional-changelog",
+      "conventional-changelog-cli",
+      "cz-conventional-changelog",
     ],
     {
-      stdio: 'inherit',
+      stdio: "inherit",
     },
-  )
-  npmSucceedLog({ module })
+  );
+  npmSucceedLog({ module });
 
-  const config = 'changelog'
-  const packageJsonFile = editJsonFile(path.resolve(process.cwd(), 'package.json'))
-  configStartLog({ config })
+  const config = "changelog";
+  const packageJsonFile = editJsonFile(
+    path.resolve(process.cwd(), "package.json"),
+  );
+  configStartLog({ config });
   packageJsonFile.set(
-    'scripts.version',
-    'conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md',
-  )
-  packageJsonFile.set('config.commitizen', {
-    path: './node_modules/cz-conventional-changelog',
-  })
-  packageJsonFile.save()
-  configSucceedLog({ config })
+    "scripts.version",
+    "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+  );
+  packageJsonFile.set("config.commitizen", {
+    path: "./node_modules/cz-conventional-changelog",
+  });
+  packageJsonFile.save();
+  configSucceedLog({ config });
 }

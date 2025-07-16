@@ -1,118 +1,81 @@
-import * as configMethods from '@fsl-std-cli/script/config-methods'
-import chalk from 'chalk'
-import inquirer from 'inquirer'
-import { program } from 'commander'
-
-/**
- * Action
- * @type {TConfigName}
- */
-type TConfigName =
-  | 'setEditorconfig'
-  | 'setNpmrc'
-  | 'setTypeScript'
-  | 'setVSCode'
-  | 'setGitignore'
-  | 'setPostcss'
-  | 'setEslint'
-  | 'setStylelint'
-  | 'setPrecommit'
-  | 'setCommitlint'
-  | 'setBrowserslistrc'
-  | 'setJSDoc'
-  | 'setChangelog'
-interface TChoice {
-  name: TConfigName
-  checked: boolean
-}
+import * as configMethods from "@fsl-std-cli/script/config-methods";
+import { checkbox, Separator } from "@inquirer/prompts";
+import chalk from "chalk";
+import { program } from "commander";
 
 program
-  .command('init')
-  .description(chalk.cyanBright('Init project settings:'))
+  .command("init")
+  .description(chalk.cyanBright("Init project settings:"))
   .action(async () => {
-    await inquirer
-      .prompt([
+    const answer = await checkbox({
+      message: "Project settings:",
+      choices: [
+        new Separator(chalk.cyanBright(" = The Base Rules = ")),
         {
-          type: 'checkbox',
-          name: 'configs',
-          message: 'Project settings:',
-          choices: [
-            new inquirer.Separator(chalk.cyanBright(' = The Base Rules = ')),
-            {
-              name: 'setEditorconfig',
-              checked: true,
-            },
-            {
-              name: 'setNpmrc',
-              checked: true,
-            },
-            {
-              name: 'setTypeScript',
-              checked: true,
-            },
-            {
-              name: 'setVSCode',
-              checked: true,
-            },
-            {
-              name: 'setGitignore',
-              checked: true,
-            },
-            {
-              name: 'setPostcss',
-              checked: true,
-            },
-
-            new inquirer.Separator(chalk.greenBright(' = The Quality Rules = ')),
-            {
-              name: 'setEslint',
-              checked: true,
-            },
-            {
-              name: 'setStylelint',
-              checked: true,
-            },
-            {
-              name: 'setPrecommit',
-              checked: true,
-            },
-            {
-              name: 'setCommitlint',
-              checked: true,
-            },
-            {
-              name: 'setBrowserslistrc',
-              checked: true,
-            },
-
-            new inquirer.Separator(chalk.magentaBright(' = The Advance Rules = ')),
-            {
-              name: 'setJSDoc',
-              checked: true,
-            },
-            {
-              name: 'setChangelog',
-              checked: true,
-            },
-
-            new inquirer.Separator(' = The End = '),
-          ] as TChoice[],
-          validate(answer) {
-            if (answer.length < 1) {
-              return 'You must choose at least one topping.'
-            }
-
-            return true
-          },
+          value: "setEditorconfig",
+          checked: true,
         },
-      ])
-      .then(async ({ configs }: { configs: readonly TConfigName[] }) => {
-        if (configs.includes('setNpmrc')) {
-          await configMethods.setNpmrc?.()
+        {
+          value: "setNpmrc",
+          checked: true,
+        },
+        {
+          value: "setTypeScript",
+          checked: true,
+        },
+        {
+          value: "setVSCode",
+          checked: true,
+        },
+        {
+          value: "setGitignore",
+          checked: true,
+        },
+
+        new Separator(chalk.greenBright(" = The Quality Rules = ")),
+        {
+          value: "setBiome",
+          checked: true,
+        },
+        {
+          value: "setPrecommit",
+          checked: true,
+        },
+        {
+          value: "setCommitlint",
+          checked: true,
+        },
+        {
+          value: "setBrowserslistrc",
+          checked: true,
+        },
+
+        new Separator(chalk.magentaBright(" = The Advance Rules = ")),
+        {
+          value: "setJSDoc",
+          checked: true,
+        },
+        {
+          value: "setChangelog",
+          checked: true,
+        },
+
+        new Separator(" = The End = "),
+      ],
+      validate(answer) {
+        if (answer.length < 1) {
+          return "You must choose at least one topping.";
         }
 
-        for (const functionName of configs) {
-          await configMethods[functionName]?.()
-        }
-      })
-  })
+        return true;
+      },
+    });
+
+    if (answer.includes("setNpmrc")) {
+      await configMethods.setNpmrc?.();
+    }
+
+    for (const functionName of answer) {
+      await configMethods[functionName as keyof typeof configMethods]?.();
+    }
+  });

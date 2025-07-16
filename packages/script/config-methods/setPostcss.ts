@@ -1,16 +1,24 @@
-import { handlePackageFile, npmStartLog, npmSucceedLog } from '../utils'
-import { spawnSync } from 'child_process'
+import { spawnSync } from "node:child_process";
+import { handlePackageFile, npmStartLog, npmSucceedLog } from "../utils";
 
 export async function setPostcss() {
-  const module = 'postcss postcss-flexbugs-fixes postcss-preset-env autoprefixer'
-  npmStartLog({ module })
+  const module =
+    "postcss postcss-flexbugs-fixes postcss-preset-env autoprefixer";
+  npmStartLog({ module });
   spawnSync(
-    'pnpm',
-    ['i', '-D', 'postcss', 'postcss-flexbugs-fixes', 'postcss-preset-env', 'autoprefixer'],
-    { stdio: 'inherit' },
-  )
-  npmSucceedLog({ module })
+    "pnpm",
+    [
+      "i",
+      "-D",
+      "postcss",
+      "postcss-flexbugs-fixes",
+      "postcss-preset-env",
+      "autoprefixer",
+    ],
+    { stdio: "inherit" },
+  );
+  npmSucceedLog({ module });
 
-  const file = 'postcss.config.js'
-  await handlePackageFile(file, `@fsl-std-cli/template/config-files/${file}`)
+  const file = "postcss.config.js";
+  await handlePackageFile(file, `@fsl-std-cli/template/config-files/${file}`);
 }

@@ -1,7 +1,7 @@
 {
   "name": "fsl-std-cli",
   "version": "1.0.0",
-  "description": "",
+  "description": "A command-line tool for quickly initializing frontend project standardization configurations",
   "bin": {
     "fstd": "dist/bin/entry.js"
   },
@@ -15,65 +15,51 @@
     "commit": "npx git-cz",
     "precommit": "lint-staged",
     "generate-docs": "jsdoc --configure .jsdoc.json --verbose",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "link": "pnpm link --global",
+    "upgrade": "pnpm up --latest -r"
   },
   "keywords": [],
-  "author": "Zehui Chen",
+  "author": "Chase Chen",
   "license": "ISC",
   "devDependencies": {
-    "@commitlint/cli": "~18.4.0",
-    "@commitlint/config-conventional": "~18.4.0",
+    "@biomejs/biome": "2.1.1",
+    "@commitlint/cli": "~19.8.1",
+    "@commitlint/config-conventional": "~19.8.1",
     "@esbuild-kit/esm-loader": "^2.6.5",
-    "@eslint/create-config": "~0.4.6",
     "@types/edit-json-file": "~1.7.3",
-    "@types/figlet": "~1.5.8",
+    "@types/figlet": "~1.7.0",
     "@types/fs-extra": "^11.0.4",
-    "@types/inquirer": "^9.0.7",
-    "@types/node": "^20.9.0",
-    "@typescript-eslint/eslint-plugin": "^6.10.0",
-    "autoprefixer": "~10.4.16",
-    "better-docs": "~2.7.2",
-    "commitizen": "~4.3.0",
+    "@types/inquirer": "^9.0.8",
+    "@types/node": "^24.0.14",
+    "autoprefixer": "~10.4.21",
+    "better-docs": "~2.7.3",
+    "commitizen": "~4.3.1",
     "commonjs-extension-resolution-loader": "^0.1.0",
-    "concurrently": "^8.2.2",
-    "conventional-changelog": "~5.1.0",
-    "conventional-changelog-cli": "~4.1.0",
+    "concurrently": "^9.2.0",
+    "conventional-changelog": "~7.1.1",
+    "conventional-changelog-cli": "~5.0.0",
     "cz-conventional-changelog": "~3.3.0",
-    "edit-json-file": "~1.7.0",
-    "eslint": "~8.53.0",
-    "eslint-config-prettier": "~9.0.0",
-    "eslint-config-standard-with-typescript": "~39.1.1",
-    "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-n": "^15.7.0",
-    "eslint-plugin-prettier": "~5.0.1",
-    "eslint-plugin-promise": "^6.0.0",
-    "husky": "~8.0.3",
-    "jsdoc": "~4.0.2",
-    "lint-staged": "~15.0.2",
-    "postcss": "~8.4.31",
-    "postcss-flexbugs-fixes": "~5.0.2",
-    "postcss-preset-env": "~9.3.0",
-    "prettier": "~3.0.3",
-    "stylelint": "~15.11.0",
-    "stylelint-config-prettier": "~9.0.5",
-    "stylelint-config-recommended-scss": "~13.1.0",
-    "stylelint-config-standard": "~34.0.0",
-    "stylelint-prettier": "~4.0.2",
-    "stylelint-scss": "~5.3.1",
+    "edit-json-file": "~1.8.1",
+    "husky": "~9.1.7",
+    "jsdoc": "~4.0.4",
+    "lint-staged": "~16.1.2",
+    "prettier": "~3.6.2",
     "taffydb": "~2.7.3",
-    "tsc-watch": "^6.0.4",
-    "typescript": "^5.2.2"
+    "tsc-watch": "^7.1.1",
+    "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@fsl-std-cli/script": "^1.0.0",
-    "@fsl-std-cli/template": "^1.0.0",
-    "chalk": "^5.3.0",
-    "commander": "^11.1.0",
-    "figlet": "~1.7.0",
-    "fs-extra": "^11.1.1",
-    "inquirer": "^9.2.12",
+    "@fsl-std-cli/script": "workspace:*",
+    "@fsl-std-cli/template": "workspace:*",
+    "@inquirer/prompts": "~7.6.0",
+    "chalk": "^5.4.1",
+    "commander": "^14.0.0",
+    "figlet": "~1.8.2",
+    "fs-extra": "^11.3.0",
+    "fsl-std-cli": "link:",
     "node-fetch": "^3.3.2",
-    "ora": "^7.0.1"
+    "ora": "^8.2.0"
   },
   "husky": {
     "hooks": {
@@ -82,16 +68,17 @@
     }
   },
   "lint-staged.editor/**/*\\.{tsx,ts,jsx,js}": [
-    "eslint --fix",
-    "git add"
-  ],
-  "lint-staged.editor/**/*\\.(scss|css|less|sass)": [
-    "stylelint --fix",
+    "pnpm exec biome format --write",
     "git add"
   ],
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "pnpm": {
+    "overrides": {
+      "fsl-std-cli": "link:"
     }
   }
 }

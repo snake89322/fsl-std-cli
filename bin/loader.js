@@ -1,1 +1,1 @@
-export * from '@esbuild-kit/esm-loader'
+export * from "@esbuild-kit/esm-loader";
